@@ -1,17 +1,19 @@
 # CS 120 Final Project | Pizza Tracking System Program
 
 > CSCI 120, Dr. BYRNES
+>
 > Henry ZHONG, ███ omitted due to privacy concerns ███.
+> 
 > Due and Submitted by 2018.12.07, 9:00.
 > 
 > Edited for personal GitHub exhibition on 2019.07.29.
 
 ---
-This document was edited based on the original lab report of CS 120's final project; as it was not written to be an introduction of the project itself, many knowledge of the project is presumed. Please checkout [project_instruction](https://github.com/choH/cs120_final_project/media/flow_chart) to get an insight of the project requirement, and refer to **Section 2. Sample Input/Output** for execution samples.
+This document was edited based on the original lab report of CS 120's final project; as it was not written to be an introduction of the project itself, many knowledge of the project is presumed. Please checkout [project_instruction](https://github.com/choH/cs120_final_project/tree/master/project_instruction) to get an insight of the project requirement, and refer to **Section 2. Sample Input/Output** for execution samples.
 
 In short, it is a command line program which manages the workflow of a pizza deliver system. Supported features: order registering, pizza making, driver assigning, driver delivering, and performance review.
 
-Note that although the professor has given a skeleton framework in [project_instruction](https://github.com/choH/cs120_final_project/media/flow_chart), I designed and implemented my own data structure as I believe my approach is neater in terms of lines of code, and uses more advance C++ features (we only exposed to such features for the last two projects). 
+Note that although the professor has given a skeleton framework in [project_instruction](https://github.com/choH/cs120_final_project/tree/master/project_instruction), I designed and implemented my own data structure as I believe my approach is neater in terms of lines of code, and uses more advance C++ features (we only exposed to such features for the last two projects). 
 In reflection, I have to admit that although my design is shorter, it sacrifices the "loosely coupled" principle of software engineering. In the later year of study, I realized that I have somehow built a lightweight relational database (utilizing the idea of id-collision) with many design flaws from database perspective.
 
 ---
@@ -31,20 +33,21 @@ I decided to use `map<string, string>` as the inner data structure of `order_rec
 Regarding some minor data structure design: 
 * Some `queue` and `map` like `to_serve_queue`, `to_dept_queue`, `to_delv_map`, and `to_arrive_map` are created to simulate the matching of orders with implicit commands.
 * `map<string, int> order_sys` and `map<string, float> driver_sys` are built to assign numerical ID to `order`s and `driver`s. 
-* `stack<string> time_stack` and `queue<string> str_queue` are used in `main.c` to keep track of the latest time-related input, and to store tokenized inputs.
+* `stack<string> time_stack` and `queue<string> str_queue` are used in `main.cpp` to keep track of the latest time-related input, and to store tokenized inputs.
 
 ---
 ### 1.2. Workflow
-![flow_chart](https://github.com/choH/cs120_final_project/media/flow_chart)
 
-The workflow logic is simple. `main.c` reads the input commands from the `input.txt` in a line by line manner and calling their *input functions* in `Base.h #1 (input functions)` accordingly. Thus `Base.h #1 (input functions)` shall therefore store data into `Base.h #3 (private data members)` in a organized form.
+![flow_chart](https://github.com/choH/cs120_final_project/blob/master/media/flow_chart.png)
 
-Once the *output functions* are called in `main.c`, `Base.h #2 (output function)` will be triggered, it shall retrieve data from `Base.h #3 (private data members)`, process these data with functions from `Time.h`, and therefore produce the output.
+The workflow logic is simple. `main.cpp` reads the input commands from the `input.txt` in a line by line manner and calling their *input functions* in `Base.h #1 (input functions)` accordingly. Thus `Base.h #1 (input functions)` shall therefore store data into `Base.h #3 (private data members)` in a organized form.
+
+Once the *output functions* are called in `main.cpp`, `Base.h #2 (output function)` will be triggered, it shall retrieve data from `Base.h #3 (private data members)`, process these data with functions from `Time.h`, and therefore produce the output.
 
 ---
 ## 2. Sample Input/Output
 
-### 2.1. Given Sample Input
+### 2.1. [Given Sample Input](https://github.com/choH/cs120_final_project/blob/master/sample_input/S2.1_input.txt)
 
 ```
 >> Program Input
@@ -88,7 +91,7 @@ Driver Abe:
 Program ended with exit code: 0 
 ```
 
-### 2.2. Self-designed Input
+### 2.2. [Self-designed Input](https://github.com/choH/cs120_final_project/blob/master/sample_input/S2.2_input.txt)
 
 ```
 >> Program Input
@@ -155,7 +158,7 @@ We used `Bitbucket` and `slack` for collaboration, and we have met on 11.28, 12.
 
 ---
 ## 4. Documentation
-### 4.1. Base.h
+### 4.1. [Base.h](https://github.com/choH/cs120_final_project/blob/master/Base.h)
 
 Since the `parameter`s are all quite self-explanatory in the following functions, this documentation section will omit the introduction of `parameter`s.
 
@@ -240,7 +243,7 @@ Since the `parameter`s are all quite self-explanatory in the following functions
         * false: otherwise.
 
 ---
-### 4.2. Time.h
+### 4.2. [Time.h](https://github.com/choH/cs120_final_project/blob/master/Time.h)
 * **Time();**
     * Constructor. 
 * **float time_to_min (const Time time);**
@@ -274,8 +277,8 @@ Since the `parameter`s are all quite self-explanatory in the following functions
         * false: otherwise.
 
 ---
-### 4.3. main.c
+### 4.3. [main.cpp](https://github.com/choH/cs120_final_project/blob/master/main.cpp)
 
-Please refer to the actual `main.c` file, in-line comments/documentations is provided.
+Please refer to the actual [`main.cpp`](https://github.com/choH/cs120_final_project/blob/master/main.cpp) file, in-line comments/documentations is provided.
 
-It might be worthy to mention that code in `main.c` shall keep track of the two latest time-related inputs (`order_time`, `serve_time`, and etc.), and it shall return and exit the program if the current input is invalid (earlier than pervious input, or not in a correct `Hour:Min` time format);
+It might be worthy to mention that code in `main.cpp` shall keep track of the two latest time-related inputs (`order_time`, `serve_time`, and etc.), and it shall return and exit the program if the current input is invalid (earlier than pervious input, or not in a correct `Hour:Min` time format);
