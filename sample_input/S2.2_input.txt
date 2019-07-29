@@ -1,0 +1,20 @@
+login Mike
+order 18:15 10 Pepperoni pizzas, 10 hotdogs, 10 Fanta orange drinks, 10 mozzarella cheese sticks to 11 Babcock Hall
+login Alex
+order 18:30 15 cheese sticks to Taylor 200
+serve 19:00
+depart 19:00 Mike
+serve 19:10
+deliver 19:30 Mike 10.00
+depart 19:50 Alex
+deliver 20:00 Alex 0.50
+arrive 20:10 Mike
+login Jen
+order 20:35 1 milkshake, 1 small cheesecake, 1 strawberry parfait to Taylor 200
+logout Mike
+serve 20:45
+arrive 20:55 Alex
+logout Alex
+status
+summary
+quit

@@ -1,0 +1,15 @@
+login Bev
+order 18:00 1 mushroom to 123 Holden Hall
+order 18:02 4 spinach to 100 Liberty St
+login Abe
+serve 18:20
+depart 18:20 Abe
+serve 18:28
+deliver 18:30 Abe 2.00
+order 18:30 1 cheese 1 sausage to 1000 Beall Ave
+depart 18:31 Bev
+arrive 18:40 Abe
+logout Abe
+status
+summary
+quit
