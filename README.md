@@ -11,10 +11,10 @@
 ---
 This document was edited based on the original lab report of CS 120's final project; as it was not written to be an introduction of the project itself, many knowledge of the project is presumed. Please checkout [project_instruction](https://github.com/choH/cs120_final_project/tree/master/project_instruction) to get an insight of the project requirement, and refer to **Section 2. Sample Input/Output** for execution samples.
 
-In short, it is a command line program which manages the workflow of a pizza deliver system. Supported features: order registering, pizza making, driver assigning, driver delivering, and performance review.
+In short, it is a command line program which manages the workflow of a pizza deliver system. Supported features: order registering, pizza making, driver assigning, driver delivering, and drivers' performance review.
 
 Note that although the professor has given a skeleton framework in [project_instruction](https://github.com/choH/cs120_final_project/tree/master/project_instruction), I designed and implemented my own data structure as I believe my approach is neater in terms of lines of code, and uses more advance C++ features (we only exposed to such features for the last two projects). 
-In reflection, I have to admit that although my design is shorter, it sacrifices the "loosely coupled" principle of software engineering. In the later year of study, I realized that I have somehow built a lightweight relational database (utilizing the idea of id-collision) with many design flaws from database perspective.
+In reflection, I have to admit that although my design is shorter, it sacrifices the "loosely coupled" principle of software engineering. In the later year of study, I realized that I have somehow built a lightweight relational database (utilizing the idea of id-collision) with many design flaws from a database perspective.
 
 ---
 ## 1. Program Design
